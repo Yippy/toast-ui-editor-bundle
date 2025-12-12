@@ -243,7 +243,11 @@ final class ToastUiEditorRenderer implements ToastUiEditorRendererInterface
         } else {
             if ($checkDefaultConfig) {
                 $defaultConfig = $config['default_config'];
-                return $this->getOption($key, $keyOption,$defaultConfig && array_key_exists($defaultConfig, $config['configs']) ? $config['configs'][$defaultConfig]: null, $config);
+                $userPreferenceConfig = null;
+                if ($defaultConfig && array_key_exists($defaultConfig, $config['configs'])) {
+                    $userPreferenceConfig = $config['configs'][$defaultConfig];
+                }
+                return $this->getOption($key, $keyOption, $userPreferenceConfig, $config);
             } else {
                 return $config[$keyOption][$key];
             }
@@ -273,7 +277,11 @@ final class ToastUiEditorRenderer implements ToastUiEditorRendererInterface
         } else {
             if ($checkDefaultConfig) {
                 $defaultConfig = $config['default_config'];
-                return $this->getOption($key, $keyOption,$defaultConfig && array_key_exists($defaultConfig, $config['configs']) ? $config['configs'][$defaultConfig][$keyParent]: null, $config[$keyParent]);
+                $userPreferenceConfig = null;
+                if ($defaultConfig && array_key_exists($defaultConfig, $config['configs']) && array_key_exists($keyParent, $config['configs'][$defaultConfig])) {
+                    $userPreferenceConfig = $config['configs'][$defaultConfig][$keyParent];
+                }
+                return $this->getOption($key, $keyOption, $userPreferenceConfig, $config[$keyParent]);
             } else {
                 return $config[$keyParent][$keyOption][$key];
             }
