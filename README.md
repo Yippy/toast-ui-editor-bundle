@@ -1,5 +1,4 @@
-# TeebbTuiEditorBundle
-中文文档在这里：[中文文档](README_zh.md)
+# YippyToastUiEditorBundle
 
 This bundle integration TOAST UI Editor for your symfony project. The code for this bundle was forked from [teebbstudios\TeebbTuiEditorBundle](https://github.com/teebbstudios/TeebbTuiEditorBundle), which was inspired by [FriendsOfSymfony\FOSCKEditorBundle](https://github.com/FriendsOfSymfony/FOSCKEditorBundle).
 
@@ -237,7 +236,7 @@ class ArticleType extends AbstractType
 
 ### Step 5: Render Markdown syntax content
 
-If you were saved markdown syntax in the database. Then you can use the twig function `toast_ui_editor_viewer_widget` to render the markdown syntax content. 
+If you were saved markdown syntax in the database. Then you can use the twig function `toast_ui_editor_widget_viewer` to render the markdown syntax content. 
 The first parameter id:  div DOM id.
 The second parameter content: twig variable, the markdown syntax content.
 
@@ -245,7 +244,14 @@ Tips: Don't forget render the dependencies in the page top！
 
 ```twig
 <div id="id"></div>
-{{ toast_ui_editor_viewer_widget("id", content) }}
+{{ toast_ui_editor_widget_viewer("id", content) }}
+```
+
+You can also amend configuration
+
+```twig
+<div id="id"></div>
+{{ toast_ui_editor_widget_viewer("id", content, { "viewer": {"js_paths": []} }) }}
 ```
 
 ### Step 6: Done!
