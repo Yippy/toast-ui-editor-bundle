@@ -124,6 +124,6 @@ final class ToastUiEditorType extends AbstractType
 
     public function getBlockPrefix(): string
     {
-        return 'toastuieditor';
+        return 'toast_ui_editor';
     }
 }

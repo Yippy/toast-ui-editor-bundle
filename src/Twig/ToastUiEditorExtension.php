@@ -24,8 +24,8 @@ final class ToastUiEditorExtension extends AbstractExtension implements ToastUiE
         $options = ['is_safe' => ['html']];
 
         return [
-            new TwigFunction('toast_ui_editor_viewer_widget', [$this, 'renderViewer'], $options),
-            new TwigFunction('toast_ui_editor_editor_widget', [$this, 'renderEditor'], $options),
+            new TwigFunction('toast_ui_editor_widget_viewer', [$this, 'renderViewer'], $options),
+            new TwigFunction('toast_ui_editor_widget_editor', [$this, 'renderEditor'], $options),
             new TwigFunction('toast_ui_editor_dependencies', [$this, 'renderDependencies'], $options),
         ];
     }
