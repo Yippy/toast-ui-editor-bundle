@@ -1,5 +1,7 @@
 # YippyToastUiEditorBundle
 
+[![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Yippy/toast-ui-editor-bundle/blob/main/LICENSE) [![Latest Stable Version](https://img.shields.io/packagist/v/yippy/toast-ui-editor-bundle.svg)](https://packagist.org/packages/yippy/toast-ui-editor-bundle) [![Total Downloads](https://img.shields.io/packagist/dt/yippy/toast-ui-editor-bundle.svg)](https://packagist.org/packages/yippy/toast-ui-editor-bundle) [![Donate](https://img.shields.io/badge/-Buy%20Me%20a%20Coffee-ff5f5f?logo=ko-fi&logoColor=white)](https://www.buymeacoffee.com/yippy)
+
 This bundle integration TOAST UI Editor for your symfony project. The code for this bundle was forked from [teebbstudios\TeebbTuiEditorBundle](https://github.com/teebbstudios/TeebbTuiEditorBundle), which was inspired by [FriendsOfSymfony\FOSCKEditorBundle](https://github.com/FriendsOfSymfony/FOSCKEditorBundle).
 
 TOAST UI Editor is a WYSIWYG and Markdown Editor that follows [CommonMark](https://commonmark.org/) and [GFM](https://github.github.com/gfm/) specifications.
