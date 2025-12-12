@@ -1,6 +1,6 @@
 {
     "name": "yippy/toast-ui-editor-bundle",
-    "description": "This bundle integration TOAST UI Editor for your Symfony project.",
+    "description": "This bundle integration TOAST UI Editor (TUI Editor) for your Symfony project.",
     "type": "symfony-bundle",
     "license": "MIT",
     "keywords": [
@@ -22,7 +22,6 @@
     ],
     "require": {
         "php": "^7.1 || ^8.0",
-        "ext-zip": "*",
         "symfony/asset": "^3.4 || ^4.0 || ^5.0 || ^6.0 || ^7.0",
         "symfony/config": "^3.4 || ^4.0 || ^5.0 || ^6.0 || ^7.0",
         "symfony/dependency-injection": "^3.4 || ^4.0 || ^5.0 || ^6.0 || ^7.0",
