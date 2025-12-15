@@ -13,7 +13,7 @@
 {% endblock %}
 
 {% block _toast_ui_editor_javascript %}
-    {{ toast_ui_editor_widget_editor('editor_'~id, config, value, { "editor": {editor}} ) }}
+    {{ toast_ui_editor_widget_editor('editor_'~id, config, value, { "editor": editor } ) }}
     {{ block('_toast_ui_editor_events_hooks') }}
 {% endblock %}
 

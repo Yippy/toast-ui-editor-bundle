@@ -166,6 +166,8 @@ final class ToastUiEditorRenderer implements ToastUiEditorRendererInterface
             }
             if ($options) {
                 array_push($jsArray, '['.$key.','.json_encode($item['options']).']');
+            } else if ($item != null) {
+                array_push($jsArray, '{'.$item.'}');
             } else {
                 array_push($jsArray, $key);
             }
@@ -298,6 +300,7 @@ final class ToastUiEditorRenderer implements ToastUiEditorRendererInterface
             $jqueryJsCode = $this->retrieveJsPathToHtml($jqueryJsPaths);
         }
 
+        $widgetRules = $this->getOptionForParent('widget_rules', 'options', 'editor', $formConfig['editor'], $this->options, true);
         $extensions = $this->getOption(null, 'extensions', $config, $this->options, true);
         $extensionsnHtml = $this->renderExtensions($extensions);
 
@@ -312,6 +315,7 @@ final class ToastUiEditorRenderer implements ToastUiEditorRendererInterface
                     language: "%s",
                     initialValue: content,
                     plugins: [%s],
+                    widgetRules: [%s],
                     theme: %s,
                     toolbarItems: %s
                 });
@@ -319,13 +323,14 @@ final class ToastUiEditorRenderer implements ToastUiEditorRendererInterface
             $this->getContentToJson($content),
             $id,
             $id,
-            $this->getOptionForParentAsJson('initial_edit_type', 'options', 'editor', $formConfig, $this->options, true),
-            $this->getOptionForParentAsJson('preview_style', 'options', 'editor', $formConfig, $this->options, true),
-            $this->getOptionForParentAsJson('height', 'options', 'editor', $formConfig, $this->options, true),
+            $this->getOptionForParentAsJson('initial_edit_type', 'options', 'editor', $formConfig['editor'], $this->options, true),
+            $this->getOptionForParentAsJson('preview_style', 'options', 'editor', $formConfig['editor'], $this->options, true),
+            $this->getOptionForParentAsJson('height', 'options', 'editor', $formConfig['editor'], $this->options, true),
             array_key_exists('language', $config) ? $config['language'] : $config['locale'],
             $this->fixArrayToJs($extensions),
-            $this->getOptionForParentAsJson('theme', 'options', 'editor', $formConfig, $this->options, true),
-            $this->getOptionForParentAsJson('toolbar_items', 'options', 'editor', $formConfig, $this->options, true)
+            $this->fixArrayToJs($widgetRules),
+            $this->getOptionForParentAsJson('theme', 'options', 'editor', $formConfig['editor'], $this->options, true),
+            $this->getOptionForParentAsJson('toolbar_items', 'options', 'editor', $formConfig['editor'], $this->options, true)
         );
 
         $editorJsPaths = $this->getOption('js_paths', 'editor', $formConfig, $this->options, true);
