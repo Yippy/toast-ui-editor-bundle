@@ -304,7 +304,7 @@ final class ToastUiEditorRenderer implements ToastUiEditorRendererInterface
         $editorJsScript = sprintf(
             '<script class="code-js">
                 var content = %s;
-                const editor_%s = new Editor({
+                const %s = new Editor({
                     el: document.querySelector("#%s"),
                     initialEditType: %s,
                     previewStyle: %s,

@@ -46,7 +46,15 @@ return [
 ];
 ```
 
-### Step 3: Config the Bundle
+### Step 3: Load assets files into public bundles folder
+
+Running this command will reference the Toast UI Editor js and css assets files into `/public/bundles/yippytoastuieditor`, if 
+
+```console
+$ php bin/console assets:install --symlink
+```
+
+### Step 4: Config the Bundle
 
 You can add a config file in `config/packages` folder.（Just a simple config, But you can use the following configuration completely）:
 ```yaml
@@ -203,7 +211,7 @@ parameters:
 
 ```
 
-### Step 4: Use the Bundle
+### Step 5: Use the Bundle
 
 Add the Toast UI Editor dependencies in your page top. For example:
 
@@ -236,7 +244,7 @@ class ArticleType extends AbstractType
 } 
 ```
 
-### Step 5: Render Markdown syntax content
+### Step 6: Render Markdown syntax content
 
 If you were saved markdown syntax in the database. Then you can use the twig function `toast_ui_editor_widget_viewer` to render the markdown syntax content. 
 The first parameter id:  div DOM id.
@@ -256,5 +264,5 @@ You can also amend configuration
 {{ toast_ui_editor_widget_viewer("id", content, { "viewer": {"js_paths": []} }) }}
 ```
 
-### Step 6: Done!
+### Step 7: Done!
 Yeah! Good Job! The Toast UI Editor will use in your page. Now you can use your inspiration to create.
