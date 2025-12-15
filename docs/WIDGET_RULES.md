@@ -2,7 +2,7 @@
 
 With Toast UI Editor Version 3, you are able to create Widget Rules that can act like Merge Tags.
 
-You can have multiple Widget Rules within Config or PHP, here is an example for an RegEx for [@text](number)
+You can have multiple Widget Rules within Config or PHP, here is an example for an RegEx for `[@text](number)`
 
 ```yaml
 #config/packages/toast_ui_editor.yaml
