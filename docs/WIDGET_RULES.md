@@ -71,7 +71,7 @@ class ExampleController extends AbstractController
 
 ### Override Template with Popup Widget
 
-![Override Template](./docs/OVERRIDE_TEMPLATE.md)
+![Override Template](./OVERRIDE_TEMPLATE.md)
 ```js
 const popup = document.createElement('ul');
 // ...

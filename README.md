@@ -290,4 +290,5 @@ Yeah! Good Job! The Toast UI Editor will use in your page. Now you can use your 
 ### How to Use
 
 [Override Template](docs/OVERRIDE_TEMPLATE.md)
+
 [Creating Widget Rules](docs/WIDGET_RULES.md)
