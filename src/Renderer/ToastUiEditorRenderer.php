@@ -159,20 +159,21 @@ final class ToastUiEditorRenderer implements ToastUiEditorRendererInterface
         foreach ($array as $key=>$item) {
             if (in_array($key, $excludeList)) continue;
             $options = null;
+            $isOptionsFound = false;
             if (is_array($item)) {
                 if (array_key_exists('options', $item)) {
                     $options = $item['options'];
+                    $isOptionsFound = true;
                 }
             }
             if ($options) {
-                array_push($jsArray, '['.$key.','.json_encode($item['options']).']');
-            } else if ($item != null) {
+                array_push($jsArray, '['.$key.','.json_encode($options).']');
+            } else if ($item != null && !$isOptionsFound ) {
                 array_push($jsArray, '{'.$item.'}');
             } else {
                 array_push($jsArray, $key);
             }
         }
-
         return implode(",", $jsArray);
     }
 
