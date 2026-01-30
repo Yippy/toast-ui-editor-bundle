@@ -165,6 +165,7 @@ final class ToastUiEditorRenderer implements ToastUiEditorRendererInterface
                     $options = $item['options'];
                     $isOptionsFound = true;
                 }
+                $item = null;
             }
             if ($options) {
                 array_push($jsArray, '['.$key.','.json_encode($options).']');
@@ -302,7 +303,7 @@ final class ToastUiEditorRenderer implements ToastUiEditorRendererInterface
         }
 
         $widgetRules = $this->getOptionForParent('widget_rules', 'options', 'editor', $formConfig['editor'], $this->options, true);
-        $extensions = $this->getOption(null, 'extensions', $config, $this->options, true);
+        $extensions = $this->getOption(null, 'extensions', $formConfig, $this->options, true);
         $extensionsnHtml = $this->renderExtensions($extensions);
 
         $editorJsScript = sprintf(
@@ -351,26 +352,29 @@ final class ToastUiEditorRenderer implements ToastUiEditorRendererInterface
             $jqueryJsPaths = $this->getOption('js_paths', 'jquery', $formConfig, $this->options, true);
             $jqueryJsCode = $this->retrieveJsPathToHtml($jqueryJsPaths);
         }
+        $widgetRules = $this->getOptionForParent('widget_rules', 'options', 'viewer', $formConfig['viewer'], $this->options, true);
         $extensions = $this->getOption(null, 'extensions', $formConfig, $this->options, true);
         $extensionsnHtml = $this->renderExtensions($extensions, ["uml", "colorSyntax"]);
 
         $viewerJsScript = sprintf(
             '<script class="code-js">
                 var content = %s;
-                const viewer_%s = new Viewer({
+                const %s = new Viewer({
                     el: document.querySelector("#%s"),
+                    viewer: true,
                     height: %s,
                     initialValue: content,
-                    plugins: [%s]
+                    plugins: [%s],
+                    widgetRules: [%s],
                 });
             </script>',
             $this->getContentToJson($content),
             $id,
             $id,
             $this->getOptionForParentAsJson('height', 'options', 'viewer', $formConfig, $this->options, true),
-            $this->fixArrayToJs($extensions, ["uml", "colorSyntax"])
+            $this->fixArrayToJs($extensions, ["uml", "colorSyntax"]),
+            $this->fixArrayToJs($widgetRules)
         );
-
         $viewerJsPaths = $this->getOption('js_paths', 'viewer', $formConfig, $this->options, true);
         $viewerJsCode = $this->retrieveJsPathToHtml($viewerJsPaths);
 
