@@ -35,7 +35,7 @@ final class Configuration implements ConfigurationInterface
         return $treeBuilder;
     }
 
-    private function createJquery($bundleBasePath)
+    private function createJquery($bundleBasePath): ArrayNodeDefinition
     {
         return $this->createNode('jquery')
             ->addDefaultsIfNotSet()
@@ -50,7 +50,7 @@ final class Configuration implements ConfigurationInterface
     }
 
 
-    private function createEditor($bundleBasePath)
+    private function createEditor($bundleBasePath): ArrayNodeDefinition
     {
         return $this->createNode('editor')
             ->addDefaultsIfNotSet()
@@ -91,7 +91,7 @@ final class Configuration implements ConfigurationInterface
                 ->end();
     }
 
-    private function createViewer($bundleBasePath)
+    private function createViewer($bundleBasePath): ArrayNodeDefinition
     {
         return $this->createNode('viewer')
             ->addDefaultsIfNotSet()
@@ -115,7 +115,7 @@ final class Configuration implements ConfigurationInterface
                 ->end();
     }
 
-    private function createExtensions(string $bundleBasePath)
+    private function createExtensions(string $bundleBasePath): ArrayNodeDefinition
     {
         return $this->createNode('extensions')
             ->addDefaultsIfNotSet()
@@ -223,7 +223,7 @@ final class Configuration implements ConfigurationInterface
                 ->end();
     }
 
-    private function createDependencies($bundleBasePath)
+    private function createDependencies($bundleBasePath): ArrayNodeDefinition
     {
         return $this->createNode('dependencies')
             ->addDefaultsIfNotSet()

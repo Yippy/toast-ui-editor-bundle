@@ -4,8 +4,8 @@ namespace Yippy\ToastUiEditorBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;
+use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
+use Symfony\Component\DependencyInjection\Extension\Extension;
 
 final class YippyToastUiEditorExtension extends Extension
 {
@@ -14,10 +14,10 @@ final class YippyToastUiEditorExtension extends Extension
      * @param ContainerBuilder $container
      * @throws \Exception
      */
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
 
-        $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader = new PhpFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
 
         $resources = [
             'config',
@@ -27,7 +27,7 @@ final class YippyToastUiEditorExtension extends Extension
         ];
 
         foreach ($resources as $resource) {
-            $loader->load($resource.'.xml');
+            $loader->load($resource.'.php');
         }
 
         $configuration = new Configuration();
